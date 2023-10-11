@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Addr>
+
+    @{
+    ViewData["Title"] = "Index";
+}
+
+@if (TempData["ResultOk"] != null)
+{
+    <h1 class="alert-success">@TempData["ResultOk"]</h1>
+}
+
+<div class="container shadow p-5">
+
+    <h1 class="text-center mb-3">CRUD Operations Using .NET Core 6 & Microsoft.EntityFrameworkCore </h1>
+
+    <div class="col mb-3">
+        <a asp-controller="Addr" asp-action="Create" class="btn btn-lg btn-primary"><i class="bi bi-file-plus-fill"></i>Add Address</a>
+    </div>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Building Name</th>
+                <th scope="col">Level</th>
+                <th scope="col">Room</th>
+                <th scope="col">Carpark</th>
+                <th scope="col">Lobby</th>
+                <th scope="col">Pantry</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td width="15%">
+                        @item.Building
+                    </td>
+                    <td width="15%">
+                        @item.Level
+                    </td>
+                    <td width="15%">
+                        @item.Room
+                    </td>
+                    <td width="15%">
+                        @item.Carpark
+                    </td>
+                    <td width="15%">
+                        @item.Lobby
+                    </td>
+                    <td width="15%">
+                        @item.Pantry
+                    </td>
+                    <td width="10%">
+                        @item.Type
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
